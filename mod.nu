@@ -34,7 +34,7 @@ export def "generate-overwrite-nu" [
 ]: nothing -> nothing {
   mkdir $nu.data-dir
   preview-generated-aliases --except=$except --prefix=$prefix |
-    save $"($nu.data-dir)/git-sh-overwrite.nu"
+    save -f $"($nu.data-dir)/git-sh-overwrite.nu"
 }
 
 

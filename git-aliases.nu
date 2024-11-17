@@ -1,7 +1,5 @@
 #!/usr/bin/env nu
 
-const generated_overwrite_nu_path = $"($nu.data-dir)/git-sh-overwrite.nu"
-
 def "preview-generated-aliases" [
   --except: list<string> = [],
   --prefix: string = "nongit-",

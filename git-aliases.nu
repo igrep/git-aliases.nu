@@ -1,6 +1,6 @@
 #!/usr/bin/env nu
 
-def "preview-generated-aliases" [
+def "preview-generated-script" [
   --except: list<string> = [],
   --prefix: string = "nongit-",
 ]: nothing -> string {
@@ -10,7 +10,7 @@ def "preview-generated-aliases" [
       ($in | parse --regex '^   (?<command>[-\w]+)').command.0?
     }
 
-  $git_subcommands |
+  let aliases = $git_subcommands |
     each {
       let command = $in
       if $command in $except {
@@ -26,11 +26,12 @@ def "preview-generated-aliases" [
       }
     } |
     str join ""
+  $"($aliases)\n$env.GIT_ALIASES_ENABLED = true\n"
 }
 
 def main [
   --except: list<string> = [],
   --prefix: string = "nongit-",
 ]: nothing -> nothing {
-  nu --interactive --execute (preview-generated-aliases --except=$except --prefix=$prefix)
+  nu --interactive --execute (preview-generated-script --except=$except --prefix=$prefix)
 }

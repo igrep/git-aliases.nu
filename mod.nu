@@ -1,6 +1,8 @@
-export const generated_overwrite_nu_path = $"($nu.data-dir)/git-sh-overwrite.nu"
+#!/usr/bin/env nu
 
-export def "preview-generated-aliases" [
+const generated_overwrite_nu_path = $"($nu.data-dir)/git-sh-overwrite.nu"
+
+def "preview-generated-aliases" [
   --except: list<string> = [],
   --prefix: string = "nongit-",
 ]: nothing -> string {
@@ -28,13 +30,9 @@ export def "preview-generated-aliases" [
     str join ""
 }
 
-export def "generate-overwrite-nu" [
+def main [
   --except: list<string> = [],
   --prefix: string = "nongit-",
 ]: nothing -> nothing {
-  mkdir $nu.data-dir
-  preview-generated-aliases --except=$except --prefix=$prefix |
-    save -f $"($nu.data-dir)/git-sh-overwrite.nu"
+  nu --interactive --execute (preview-generated-aliases --except=$except --prefix=$prefix)
 }
-
-

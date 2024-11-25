@@ -8,7 +8,22 @@ Download from [GitHub](https://github.com/igrep/git-aliases.nu/raw/refs/heads/ma
 
 ## Usage
 
-See `git-aliases.nu --help`.
+Just run  `git-aliases.nu`, then the `nu` command starts with the aliases configured. Now you don't need to type `git` before the subcommands:
+
+```nu
+> git-aliases.nu
+
+> branch
+* main
+
+> status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+...
+```
+
+See `git-aliases.nu --help` for details.
 
 ## Known Issue
 

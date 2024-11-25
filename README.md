@@ -1,6 +1,6 @@
 # git-sh.nu
 
-Configure aliases for all git subcommands so that you can use them without typing `git`.
+Configure aliases for all git subcommands so that you can use them without typing `git`. Inspired by [git-sh](https://rtomayko.github.io/git-sh/).
 
 ## Installation
 

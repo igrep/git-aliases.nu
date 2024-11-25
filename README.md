@@ -23,7 +23,19 @@ Your branch is up to date with 'origin/main'.
 ...
 ```
 
-See `git-aliases.nu --help` for details.
+And `git-aliases.nu` sets an environment variable `GIT_ALIASES_NU` to `true`. It's useful for switching the prompt. For example, you can add the following to your `$nu.env-path` (usually `~/.config/nushell/env.nu`):
+
+```nu
+def create_left_prompt [] {
+  if ($env.GIT_ALIASES_ENABLED? == true) {
+    return $"(left_prompt_when_git_aliases_enabled)\n:"
+  }
+
+  ...
+}
+```
+
+See `git-aliases.nu --help` for more.
 
 ## Known Issue
 

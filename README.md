@@ -53,3 +53,5 @@ Error: nu::shell::nushell_failed_spanned
    ╰────
   help: This shouldn't happen. Please file an issue: https://github.com/nushell/nushell/issues
 ```
+
+I want to report this problem. But I'm not sure the definitive way to reproduce this...
